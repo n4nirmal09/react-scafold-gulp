@@ -31,7 +31,7 @@ gulp.task('webserver', function() {
 var dependencies = [
   'react',
   'react-dom',
-  'react-gsap-enhancer'
+  'react-router-dom'
 ];
 // keep a count of the times a task refires
 var scriptsCount = 0;
@@ -47,7 +47,7 @@ gulp.task('deploy', function (){
 });
  
 gulp.task('watch', function () {
-  gulp.watch(['./app/*.js'], ['scripts']);
+  gulp.watch(['./app/**/*.js'], ['scripts']);
 });
  
 // When running 'gulp' on the terminal this task will fire.
@@ -62,7 +62,7 @@ function bundleApp(isProduction) {
   // Browserify will bundle all our js files together in to one and will let
   // us use modules in the front end.
   var appBundler = browserify({
-      entries: './app/app.js',
+      entries: './app/index.js',
       debug: true
     })
  
